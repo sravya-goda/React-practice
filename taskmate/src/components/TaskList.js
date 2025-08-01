@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { TaskCard } from './TaskCard';
+import "./TaskList.css";
+import "./AddTask.css";
 
 export const TaskList = () => {
     const [tasks, setTasks] = useState([
@@ -13,17 +16,16 @@ export const TaskList = () => {
     }
 
   return (
-    <>
-        <h1>Task List</h1>
+    <section className='tasklist'>
         <ul>
-            <button className='trigger' onClick={() => setShow(!show)}>Toggle</button>
+            <div className='header'>
+                <h1>TaskList</h1>
+                <button className='trigger' onClick={() => setShow(!show)}>{ show ? "Hide Tasks" : "Show Tasks"}</button>
+            </div>
             { show && tasks.map((task) => (
-                <li key={task.id} className={task.completed ? "completed" : "incomplete"}>
-                    <span>{task.id} - {task.name}</span>
-                    <button onClick={() => handleDelete(task.id)} className='delete'>Delete</button>
-                </li>
+                <TaskCard key={task.id} task={task} handleDelete={handleDelete} />
             )) }
         </ul>
-    </>
+    </section>
   )
 }
