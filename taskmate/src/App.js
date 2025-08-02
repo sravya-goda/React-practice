@@ -1,11 +1,15 @@
-import { ProductList } from './components/ProductList';
+import { Header } from './components/Header';
+import { AddTask } from "./components/AddTask";
+import { ShowTask } from "./components/ShowTask";
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>Product List</h1>
-      <ProductList />
+       <Header />
+       <AddTask />
+       <ShowTask />
     </div>
   );
 }
